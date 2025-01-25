@@ -30,7 +30,7 @@ if st.button("📊 Berechnung starten"):
         inflationsverlust = startbetrag - endbetrag
 
         # Berechnung der Kaufkraftentwicklung mit Zinsen (Realzinsfalle)
-        endbetrag_mit_zins = startbetrag * ((1 + zinsrate / 100) ** zeitraum) * ((1 - inflationsrate / 100) ** zeitraum)
+        endbetrag_mit_zins = startbetrag * ((1 + zinsrate / 100) / (1 + inflationsrate / 100)) ** zeitraum
         kaufkraftverlust_mit_zins = startbetrag - endbetrag_mit_zins
 
         # Ergebnisse anzeigen
@@ -76,6 +76,7 @@ if st.button("📊 Berechnung starten"):
         - Tatsächliche Werte können aufgrund wirtschaftlicher Schwankungen abweichen.
         - Die grafische Darstellung hilft Ihnen, den Einfluss der Inflation auf Ihre Ersparnisse besser zu verstehen.
         """)
+
 
 
 
