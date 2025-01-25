@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 
 # Titel des Rechners
-st.title("💸 Inflationsrechner (Realzinsfalle)")
+st.title("💸 Sparkassen Inflationsrechner (ACHTUNG REALZINSFALLE)")
 st.markdown("""
 Mit diesem Tool können Sie den zukünftigen Wert Ihres Geldes berechnen, indem die Inflation berücksichtigt wird. 
 Erfahren Sie, wie viel Kaufkraft Ihr Geld über die Zeit verliert und wie ein positiver Zinssatz dagegen wirken könnte.
@@ -36,12 +36,14 @@ if st.button("📊 Berechnung starten"):
         # Ergebnisse anzeigen
         st.markdown("### 📋 Ergebnisse")
 
-        st.markdown("#### Zusammenfassung")
-        st.write(f"- 💼 **Startbetrag**: {startbetrag:,.2f} €")
-        st.write(f"- 📉 **Betrag nach {zeitraum} Jahren ohne Zinsen**: {endbetrag:,.2f} €")
-        st.write(f"- 📈 **Betrag nach {zeitraum} Jahren mit {zinsrate:.2f}% Zinsen pro Jahr**: {endbetrag_mit_zins:,.2f} €")
-        st.write(f"- 🛒 **Kaufkraftverlust ohne Zinsen**: {inflationsverlust:,.2f} €")
-        st.write(f"- 🛒 **Kaufkraftverlust trotz Zinsen**: {kaufkraftverlust_mit_zins:,.2f} €")
+        # Zusammenfassung als Karten
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric(label="💼 Startbetrag", value=f"{startbetrag:,.2f} €")
+        with col2:
+            st.metric(label="📉 Betrag nach {zeitraum} Jahren (ohne Zinsen)", value=f"{endbetrag:,.2f} €", delta=f"{inflationsverlust:,.2f} €")
+        with col3:
+            st.metric(label=f"📈 Betrag mit {zinsrate:.2f}% Zinsen", value=f"{endbetrag_mit_zins:,.2f} €", delta=f"{kaufkraftverlust_mit_zins:,.2f} €")
 
         st.markdown("""
         **Erklärung der Ergebnisse:**
@@ -63,7 +65,7 @@ if st.button("📊 Berechnung starten"):
         plt.title("Entwicklung der Kaufkraft")
         plt.xlabel("Jahre")
         plt.ylabel("Betrag (€)")
-        plt.grid(True)
+        plt.grid(True, linestyle='--', alpha=0.7)
         plt.legend()
 
         st.pyplot(plt)
@@ -74,6 +76,7 @@ if st.button("📊 Berechnung starten"):
         - Tatsächliche Werte können aufgrund wirtschaftlicher Schwankungen abweichen.
         - Die grafische Darstellung hilft Ihnen, den Einfluss der Inflation auf Ihre Ersparnisse besser zu verstehen.
         """)
+
 
 
 
