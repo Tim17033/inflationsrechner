@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 
 # Titel des Rechners
-st.title("💸 Sparkassen Inflationsrechner (ACHTUNG REALZINSFALLE)")
+st.title("💸 Inflationsrechner (ACHTUNG REALZINSFALLE)")
 st.markdown("""
 Mit diesem Tool können Sie den zukünftigen Wert Ihres Geldes berechnen, indem die Inflation berücksichtigt wird. 
 Erfahren Sie, wie viel Kaufkraft Ihr Geld über die Zeit verliert und wie ein positiver Zinssatz dagegen wirken könnte.
