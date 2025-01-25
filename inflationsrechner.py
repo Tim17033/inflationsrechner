@@ -39,7 +39,7 @@ if st.button("📊 Berechnung starten"):
         st.markdown("#### Zusammenfassung")
         st.write(f"- 💼 **Startbetrag**: {startbetrag:,.2f} €")
         st.write(f"- 📉 **Betrag nach {zeitraum} Jahren ohne Zinsen**: {endbetrag:,.2f} €")
-        st.write(f"- 📈 **Betrag nach {zeitraum} Jahren mit {zinsrate}% Zinsen pro Jahr**: {endbetrag_mit_zins:,.2f} €")
+        st.write(f"- 📈 **Betrag nach {zeitraum} Jahren mit {zinsrate:.2f}% Zinsen pro Jahr**: {endbetrag_mit_zins:,.2f} €")
         st.write(f"- 🛒 **Kaufkraftverlust ohne Zinsen**: {inflationsverlust:,.2f} €")
         st.write(f"- 🛒 **Kaufkraftverlust trotz Zinsen**: {kaufkraftverlust_mit_zins:,.2f} €")
 
@@ -74,5 +74,6 @@ if st.button("📊 Berechnung starten"):
         - Tatsächliche Werte können aufgrund wirtschaftlicher Schwankungen abweichen.
         - Die grafische Darstellung hilft Ihnen, den Einfluss der Inflation auf Ihre Ersparnisse besser zu verstehen.
         """)
+
 
 
