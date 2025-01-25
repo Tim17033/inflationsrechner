@@ -7,6 +7,10 @@ st.title("💸 Sparkassen Inflationsrechner (ACHTUNG REALZINSFALLE)")
 st.markdown("""
 Mit diesem Tool können Sie den zukünftigen Wert Ihres Geldes berechnen, indem die Inflation berücksichtigt wird. 
 Erfahren Sie, wie viel Kaufkraft Ihr Geld über die Zeit verliert und wie ein positiver Zinssatz dagegen wirken könnte.
+
+🔍 **Was ist die Realzinsfalle?**
+Die Realzinsfalle beschreibt die Situation, in der selbst bei positiven Zinsen die Inflation dazu führt, dass Ihre tatsächliche Kaufkraft sinkt. 
+Dieses Tool hilft Ihnen zu verstehen, wie sich Inflation und Zinsen gegenseitig beeinflussen.
 """)
 
 # Eingaben
@@ -33,11 +37,18 @@ if st.button("📊 Berechnung starten"):
         st.markdown("### 📋 Ergebnisse")
 
         st.markdown("#### Zusammenfassung")
-        st.write(f"- 💼 Ursprünglicher Betrag: **{startbetrag:,.2f} €**")
-        st.write(f"- 📉 Betrag nach {zeitraum} Jahren ohne Zinsen: **{endbetrag:,.2f} €**")
-        st.write(f"- 📈 Betrag nach {zeitraum} Jahren mit {zinsrate}% Zinsen pro Jahr: **{endbetrag_mit_zins:,.2f} €**")
-        st.write(f"- 🛒 Kaufkraftverlust ohne Zinsen: **{inflationsverlust:,.2f} €**")
-        st.write(f"- 🛒 Kaufkraftverlust trotz Zinsen: **{kaufkraftverlust_mit_zins:,.2f} €**")
+        st.write(f"- 💼 **Startbetrag**: {startbetrag:,.2f} €")
+        st.write(f"- 📉 **Betrag nach {zeitraum} Jahren ohne Zinsen**: {endbetrag:,.2f} €")
+        st.write(f"- 📈 **Betrag nach {zeitraum} Jahren mit {zinsrate}% Zinsen pro Jahr**: {endbetrag_mit_zins:,.2f} €")
+        st.write(f"- 🛒 **Kaufkraftverlust ohne Zinsen**: {inflationsverlust:,.2f} €")
+        st.write(f"- 🛒 **Kaufkraftverlust trotz Zinsen**: {kaufkraftverlust_mit_zins:,.2f} €")
+
+        st.markdown("""
+        **Erklärung der Ergebnisse:**
+        - Der Kaufkraftverlust ohne Zinsen zeigt, wie stark die Inflation allein Ihren Betrag reduziert.
+        - Der Kaufkraftverlust trotz Zinsen verdeutlicht, dass Zinsen allein möglicherweise nicht ausreichen, um die Inflation auszugleichen.
+        - Ein positiver Zinssatz kann die Verluste mindern, jedoch die Kaufkraft nicht vollständig erhalten, wenn die Inflationsrate höher ist.
+        """)
 
         # Grafische Darstellung
         jahre = list(range(zeitraum + 1))
@@ -58,7 +69,10 @@ if st.button("📊 Berechnung starten"):
         st.pyplot(plt)
 
         st.markdown("""
-        🔎 **Hinweis:** Diese Berechnung berücksichtigt sowohl Inflation als auch Zinsen. 
-        Tatsächliche Werte können aufgrund wirtschaftlicher Schwankungen abweichen.
+        🔎 **Hinweis:**
+        - Diese Berechnung basiert auf einer konstanten Inflations- und Zinsrate.
+        - Tatsächliche Werte können aufgrund wirtschaftlicher Schwankungen abweichen.
+        - Die grafische Darstellung hilft Ihnen, den Einfluss der Inflation auf Ihre Ersparnisse besser zu verstehen.
         """)
+
 
